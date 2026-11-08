@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Kinga, IT student at Jigme Namgyel Engineering College, Bhutan.">
+<meta name="theme-color" content="#050510">
+<title>Kinga | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Profile photo drops from the top of the screen into its place */
+  .hero .photo {
+    animation: dropIn 1.4s cubic-bezier(.22, 1, .36, 1) .2s backwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes dropIn {
+    0%   { transform: translateY(-110vh) rotate(-8deg); opacity: 0; }
+    15%  { opacity: 1; }
+    70%  { transform: translateY(14px) rotate(2deg); }   /* small bounce on landing */
+    85%  { transform: translateY(-6px) rotate(-1deg); }
+    100% { transform: translateY(0) rotate(0); opacity: 1; }
+  }
+
+  /* Text appears after the photo has landed */
+  .hero .tag, .hero h1, .hero h2, .hero .lead, .hero .btns {
+    animation: fadeUp .7s ease 1.1s backwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Respect users who turn off motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero .photo, .hero .tag, .hero h1, .hero h2, .hero .lead, .hero .btns {
+      animation: none;
+    }
+  }
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<header class="nav">
+  <a href="#home" class="logo">kinga<span>.</span></a>
+  <nav id="menu">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#education">Education</a><a href="#certificates">Certificates</a><a href="#contact">Contact</a>
+  </nav>
+  <button id="theme" aria-label="Toggle theme">🌙</button>
+  <button id="burger" aria-label="Menu">☰</button>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="photo"><span>K</span><img src="media/my-profile.jpeg" alt="Photo of Kinga" onerror="this.remove()"></div>
+  <p class="tag">Hello, I'm</p>
+  <h1>Kinga</h1>
+  <h2><span id="typed"></span><span class="cursor">|</span></h2>
+  <p class="lead">IT student at Jigme Namgyel Engineering College building desktop apps, web APIs and networks, from Dewathang, Bhutan.</p>
+  <div class="btns">
+    <a class="btn" href="#projects">View Projects</a>
+    <a class="btn ghost" href="#contact">Contact Me</a>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <h3 class="title"><span>01</span> About Me</h3>
+  <div class="grid two">
+    <p>I am a Diploma student in Computer System and Network at Jigme Namgyel Engineering College (JNEC), under the Royal University of Bhutan. I enjoy turning ideas into working software, from Python desktop apps to Node.js REST APIs, and I also like configuring servers and networks such as DNS, DHCP, Active Directory and BGP.</p>
+    <div class="card">
+      <h4>Interests</h4>
+      <p>Web development · Databases · Computer networking · Server administration</p>
+      <h4>Career Goal</h4>
+      <p>To become a full-stack developer and network engineer who builds reliable digital services for Bhutan.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <h3 class="title"><span>02</span> Skills</h3>
+  <div class="grid two" id="skillList"></div>
+  <div class="chips">
+    <b>Other:</b> <i>Git &amp; GitHub</i><i>Packet Tracer</i><i>GNS3</i><i>VirtualBox</i><i>Windows Server 2022</i><i>Linux</i><i>Teamwork</i><i>Problem solving</i>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <h3 class="title"><span>03</span> Projects</h3>
+  <div class="grid three" id="projectList"></div>
+</section>
+
+<section id="education" class="reveal">
+  <h3 class="title"><span>04</span> Education</h3>
+  <div class="timeline">
+    <div class="card"><h4>Diploma in Computer System and Network</h4><p class="muted">Jigme Namgyel Engineering College, Royal University of Bhutan · Ongoing</p>
+      <p>Modules include Python, Web Design (SYD204), Linux, Windows Server, DNS and BGP networking.</p></div>
+    <div class="card"><h4>Hands-on Labs &amp; Practicals</h4><p class="muted">Coursework</p>
+      <p>Active Directory, DNS and DHCP configuration in GNS3, plus BGP design in Packet Tracer.</p></div>
+  </div>
+</section>
+
+<section id="certificates" class="reveal">
+  <h3 class="title"><span>05</span> Certificates</h3>
+  <div class="grid three">
+
+    <div class="card cert">
+      <h4>CCNA: Introduction to Networks</h4>
+      <p class="muted">Cisco Networking Academy · JNEC</p>
+      <a class="btn ghost" href="certificate/CCNA-_Introduction_to_Networks_certificate_05250176-jnec-rub-edu-bt_997c335b-173b-4c9c-a376-2b32b6edd7ea.pdf" target="_blank" rel="noopener">View Certificate</a>
+    </div>
+
+    <div class="card cert">
+      <h4>CCNA: Switching, Routing and Wireless Essentials</h4>
+      <p class="muted">Cisco Networking Academy · JNEC</p>
+      <a class="btn ghost" href="certificate/CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_05250176-jnec-rub-edu-bt_ec6c8f7f-e2c6-415b-a82a-aa1a2517f564.pdf" target="_blank" rel="noopener">View Certificate</a>
+    </div>
+
+    <div class="card cert">
+      <h4>Coursera Course 1</h4>
+      <p class="muted">Coursera</p>
+      <a class="btn ghost" href="certificate/Coursera%205EKMPJ2QJLNB.pdf" target="_blank" rel="noopener">View Certificate</a>
+    </div>
+
+    <div class="card cert">
+      <h4>Coursera Course 2</h4>
+      <p class="muted">Coursera</p>
+      <a class="btn ghost" href="certificate/Coursera%206NJAZ2IWBHJJ.pdf" target="_blank" rel="noopener">View Certificate</a>
+    </div>
+
+    <div class="card cert">
+      <h4>Coursera Course 3</h4>
+      <p class="muted">Coursera</p>
+      <a class="btn ghost" href="certificate/Coursera%2067ZU4KOXXIZD.pdf" target="_blank" rel="noopener">View Certificate</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <h3 class="title"><span>06</span> Contact</h3>
+  <div class="grid two">
+    <div class="card">
+      <p>Let's connect! Send a message or find me online.</p>
+      <p>📧 <a id="mail" href="#"></a></p>
+      <p>💻 <a id="gh" href="#" target="_blank" rel="noopener"></a></p>
+      <p>📍 Dewathang, Bhutan</p>
+    </div>
+    <form id="form">
+      <input id="name" placeholder="Your name" required>
+      <input id="email" type="email" placeholder="Your email" required>
+      <textarea id="msg" rows="4" placeholder="Your message" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+      <p id="note" class="muted"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> Kinga · JNEC, Bhutan</footer>
+<button id="top" aria-label="Back to top">↑</button>
+
+<!-- Background music: tries the MP3 first, then your MP4 -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="music/background.mp3" type="audio/mpeg">
+  <source src="music/background.mp4" type="video/mp4">
+</audio>
+
+<!-- Music button with the "now playing" equalizer bars -->
+<button id="musicBtn" aria-label="Toggle music">
+  <span class="eq"><i></i><i></i><i></i><i></i></span>
+  <span id="musicText">Click to play music</span>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
